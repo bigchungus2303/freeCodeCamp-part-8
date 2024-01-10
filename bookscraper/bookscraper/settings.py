@@ -25,6 +25,12 @@ SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT = 'https://headers.scrapeops.io/v1/user-agent
 SCRAPEOPS_FAKE_USER_AGENT_ENABLED = True
 SCRAPEOPS_NUM_RESULTS = 5
 
+# ROTATING_PROXY_LIST = [
+#     '201.144.20.231:5678',
+#     '103.192.76.36:5678',
+#     '8.42.71.5:39593',
+# ]
+
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
@@ -62,7 +68,9 @@ ROBOTSTXT_OBEY = True
 DOWNLOADER_MIDDLEWARES = {
     # 'bookscraper.middlewares.BookscraperDownloaderMiddleware': 543,
     'bookscraper.middlewares.ScrapeOpsFakeUserAgentMiddleware': 400,
-   'bookscraper.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 401,
+    'bookscraper.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 401,
+#     'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
+#     'rotating_proxies.middlewares.BanDetectionMiddleware':620,
 }
 
 # Enable or disable extensions
